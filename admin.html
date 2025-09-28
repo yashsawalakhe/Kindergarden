@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Kindergarten</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="responsive.css">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Comic Sans MS', cursive, sans-serif; }
+    body { background: linear-gradient(to bottom right, #fff0f5, #e0f7fa); min-height:100vh; display:flex; flex-direction:column; }
+    header { background: linear-gradient(to right, #ff99cc, #9966ff); color:white; text-align:center; padding:40px 20px 30px; animation:slideDown 1s ease; }
+    header h1 { font-size:2.2rem; margin-bottom:8px; display:inline-block; margin-right:20px; }
+    .container { max-width:1200px; margin:30px auto; padding:20px; background:#ffffffdd; border-radius:20px; box-shadow:0 8px 25px rgba(0,0,0,0.1); animation:fadeInUp 1.2s ease; }
+    h2 { text-align:center; margin:20px 0; color:#6a1b9a; }
+    table { width:100%; border-collapse:collapse; margin:20px 0; background:white; border-radius:15px; overflow:hidden; }
+    th, td { padding:12px 15px; border:1px solid #ddd; text-align:left; font-size:0.95rem; }
+    th { background: linear-gradient(to right, #f472b6, #8b5cf6); color:white; }
+    tr:nth-child(even) { background:#f9f9f9; }
+    footer { margin-top:auto; background:#333; color:white; text-align:center; padding:15px; }
+    @keyframes slideDown { from { opacity:0; transform:translateY(-40px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+    button.logout-btn { padding:8px 16px; border:none; border-radius:8px; background: linear-gradient(to right, #f472b6, #8b5cf6); color:white; font-size:0.95rem; cursor:pointer; }
+  </style>
+</head>
+<body>
+<script>
+  // Prevent access without login
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+
+<header>
+  <h1>Admin Dashboard</h1>
+  <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+  <p>Manage Contacts & Admissions</p>
+</header>
+
+<div class="container">
+  <h2>📩 Contact Messages</h2>
+  <table id="contactTable">
+    <thead>
+      <tr><th>Name</th><th>Email</th><th>Message</th><th>Date</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>🎓 Admission Submissions</h2>
+  <table id="admissionTable">
+    <thead>
+      <tr>
+        <th>Child Name</th><th>DOB</th><th>Gender</th><th>Parent Name</th><th>Email</th>
+        <th>Phone</th><th>Address</th><th>Message</th><th>Date</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<footer>&copy; 2025 Kindergarten School | Shriyaro</footer>
+
+<script>
+  async function loadData() {
+    try {
+      // Fetch Contacts
+      const contactRes = await fetch("http://localhost:5000/api/contact");
+      const contactData = await contactRes.json();
+      const contacts = contactData.contacts || [];
+      const contactBody = document.querySelector("#contactTable tbody");
+      contactBody.innerHTML = "";
+      contacts.forEach(c => {
+        contactBody.innerHTML += `
+          <tr>
+            <td>${c.name}</td>
+            <td>${c.email}</td>
+            <td>${c.message}</td>
+            <td>${new Date(c.createdAt).toLocaleString()}</td>
+          </tr>`;
+      });
+
+      // Fetch Admissions
+      const admissionRes = await fetch("http://localhost:5000/api/admission");
+      const admissionData = await admissionRes.json();
+      const admissions = admissionData.admissions || [];
+      const admissionBody = document.querySelector("#admissionTable tbody");
+      admissionBody.innerHTML = "";
+      admissions.forEach(a => {
+        admissionBody.innerHTML += `
+          <tr>
+            <td>${a.child_name}</td>
+            <td>${new Date(a.dob).toLocaleDateString()}</td>
+            <td>${a.gender}</td>
+            <td>${a.parent_name}</td>
+            <td>${a.email || "-"}</td>
+            <td>${a.phone}</td>
+            <td>${a.address}</td>
+            <td>${a.message || "-"}</td>
+            <td>${new Date(a.createdAt).toLocaleString()}</td>
+          </tr>`;
+      });
+
+    } catch (err) {
+      console.error("Error loading data:", err);
+      alert("⚠️ Could not fetch data from server.");
+    }
+  }
+
+  function logout() {
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "login.html";
+  }
+
+  loadData();
+</script>
+
+</body>
+</html>
+

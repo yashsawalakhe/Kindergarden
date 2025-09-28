@@ -1,0 +1,337 @@
+/* responsive.css
+   Single stylesheet to make all pages responsive without changing HTML structure.
+   Drop this file in your project and link it in every page's <head>.
+*/
+
+/* =============== Globals =============== */
+/* ✅ Hamburger button hidden on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: yellow;
+  color: purple;
+  padding: 6px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Show hamburger on small screens */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    margin-left: auto; /* push to right side */
+  }
+
+  nav {
+    display: none; /* hide nav links initially */
+    flex-direction: column;
+    width: 100%;
+    background: var(--brand-gradient);
+    border-radius: 10px;
+    padding: 10px 0;
+  }
+
+  nav.active {
+    display: flex; /* show nav when active */
+  }
+
+  nav a {
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    color: white;
+  }
+}
+
+:root{
+  --max-width:1200px;
+  --container-padding:20px;
+  --brand-gradient: linear-gradient(to right,#8f00ff,#ffce00);
+  --accent1: #8f00ff;
+  --accent2: #ffce00;
+  --card-radius:18px;
+}
+
+*{box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  margin:0;
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  color:#222;
+  background-color: #f7f9fc;
+}
+
+/* Central container convenience */
+.container, .gallery-container, .calendar, .form-container, .contact-container {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Make all images responsive */
+img, svg, .logo, .header-logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure header/nav sits nicely */
+header {
+  width:100%;
+  padding: 12px 24px;
+  align-items: center;
+  justify-content: space-between;
+  gap:12px;
+}
+
+/* Nav default: horizontal with wrapping */
+nav {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+}
+
+/* Make nav links tappable */
+nav a {
+  display:inline-block;
+  padding:8px 10px;
+  line-height:1;
+  text-decoration:none;
+  border-radius:8px;
+}
+
+/* Small visual for focus */
+a:focus, button:focus, input:focus { outline: 3px solid rgba(143,0,255,0.12); outline-offset:2px; }
+
+/* =============== Layout helpers =============== */
+.row{display:flex;flex-wrap:wrap;gap:20px;}
+.col{flex:1 1 0;min-width:0;}
+.center{text-align:center;}
+.card{background:#fff;border-radius:var(--card-radius);box-shadow:0 8px 20px rgba(10,10,10,0.06);padding:18px;}
+
+/* =============== Tables =============== */
+/* Provide horizontal scrolling on small screens to prevent overflow */
+table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:0.95rem;
+}
+
+/* make table containers scrollable on small screens */
+table, .table-container { max-width:100%; }
+.table-container{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+
+/* For fees.html already uses data-label trick; ensure presentation */
+.fees td[data-label], .fees2 td[data-label] { }
+
+/* Admin tables - keep readable on small screens by scroll */
+#contactTable, #admissionTable {
+  width:100%;
+  border-collapse:collapse;
+}
+
+/* table cells maintain padding on small screens */
+th, td {
+  padding:10px 12px;
+}
+
+/* =============== Forms =============== */
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Make form controls full width */
+form input, form select, form textarea {
+  width:100%;
+  box-sizing:border-box;
+}
+
+/* Buttons scale nicely on mobile */
+button {
+  cursor:pointer;
+  border: none;
+  display:inline-block;
+}
+
+/* =============== Hero / Slideshow / Cards =============== */
+/* Limit hero height on small screens */
+.hero { position:relative; overflow:hidden; }
+.hero .slideshow img{ object-fit:cover; width:100%; height:100%; }
+
+/* Cards grid responsiveness */
+.features, .gallery-container {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap:20px;
+}
+
+/* Calendar grid */
+.calendar {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+  padding:32px 0;
+}
+
+/* Gallery lightbox (ensure fits mobile) */
+#lightbox img {
+  max-width: 92%;
+  max-height: 78vh;
+}
+
+/* =============== Popup overlay adjustments =============== */
+.popup-overlay, .popup {
+  width: 100%;
+}
+
+/* =============== Responsive Breakpoints =============== */
+
+/* Large tablets / small laptops */
+@media (max-width: 992px) {
+  :root { --container-padding:16px; }
+  header { padding: 12px 18px; }
+  .hero { height: 320px !important; }
+  .hero h1 { font-size: 2.2rem; }
+  .hero p { font-size: 1rem; }
+  .page-title h1 { font-size: 2.2rem; }
+}
+
+/* Tablets and large phones */
+@media (max-width: 768px) {
+  /* Stack header content vertically to avoid squish */
+  header {
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+    padding:14px 18px;
+  }
+
+  /* Make nav full-width and center links */
+  nav {
+    width:100%;
+    justify-content:center;
+    gap:8px;
+    padding-top:6px;
+  }
+
+  /* Header brand alignment */
+  header .branding, header .logo-title, header h3 {
+    width:100%;
+    display:flex;
+    justify-content:flex-start;
+    gap:10px;
+    align-items:center;
+  }
+
+  /* Forms + containers full width */
+  .form-container, .contact-container, .container {
+    width:100%;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+
+  /* Reduce padding on hero */
+  .hero { height:300px; }
+
+  /* Calendar: 1 or 2 columns */
+  .calendar { grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); }
+
+  /* Gallery images slightly shorter */
+  .card img { height:170px; object-fit:cover; }
+
+  /* Table cards (fees.html) — use stacked blocks if they used display:block approach */
+  .fees table, .fees thead, .fees tbody, .fees th, .fees td, .fees tr {
+    display:block;
+    width:100%;
+  }
+  .fees thead { display:none; }
+  .fees tr { margin-bottom: 14px; background:white; border-radius:12px; padding:12px; box-shadow:0 4px 10px rgba(0,0,0,0.04); }
+  .fees td { padding:10px 12px; position:relative; text-align:right; }
+  .fees td::before {
+    content:attr(data-label);
+    position:absolute;
+    left:12px;
+    top:10px;
+    font-weight:600;
+    color:#333;
+    text-align:left;
+  }
+
+  /* Admin / large tables: allow horizontal scroll so layout isn't changed */
+  #contactTable, #admissionTable {
+    display:block;
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  #contactTable table, #admissionTable table { width:100%; }
+
+  /* Footer padding */
+  footer { padding:18px; font-size:0.95rem; }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  :root { --container-padding:12px; --card-radius:14px; }
+  header { padding:10px 12px; align-items:flex-start; }
+  nav { flex-direction:column; gap:6px; align-items:flex-start; }
+  nav a { width:100%; text-align:left; padding:8px 10px; }
+
+  /* Hero height smaller for tiny screens */
+  .hero { height:240px; }
+
+  .hero h1 { font-size:1.6rem; line-height:1.1; margin:6px 0; }
+  .hero p { font-size:0.95rem; }
+
+  /* Reduce card padding */
+  .card { padding:14px; }
+
+  /* Gallery card image height */
+  .card img { height:150px; }
+
+  /* Calendar single column */
+  .calendar { grid-template-columns: 1fr; padding:20px 0; }
+
+  /* Forms - inputs larger touch targets */
+  input, select, textarea, button { font-size:1rem; padding:12px; border-radius:10px; }
+
+  /* Popup box */
+  .popup { max-width: 92%; padding:18px; border-radius:12px; }
+  .popup h2 { font-size:1.2rem; margin-bottom:10px; }
+
+  /* Smaller text in table cells to avoid wrap */
+  th, td { font-size:0.92rem; padding:9px; }
+}
+
+/* =============== Small polish tweaks =============== */
+/* Keep animations/light CSS unaffected */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* Prevent horizontal overflow from rogue elements */
+html, body { overflow-x: hidden; }
+
+/* Specific tweaks for slideshow (ensure full bleed on mobile) */
+.hero .slideshow, .slideshow { width:100%; height:100%; display:block; }
+
+/* Make sure popup overlay fits viewport on mobile */
+.popup-overlay { padding:20px; box-sizing:border-box; }
+
+/* Lightbox close button larger on mobile */
+#lightbox #close { touch-action: manipulation; font-size:44px; }
+
+/* Ensure admin login box fits tiny phones */
+.login-box { width: 92%; max-width: 420px; margin:auto; }
+
+/* Ensure contact images don't overflow in small form layouts */
+.contact-img img { max-width:100%; height:auto; display:block; }

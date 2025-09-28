@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="responsive.css">
+
+  <title>Academic Calendar - Kindergarten</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f7f9fc;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(to right, #8f00ff, #ffce00);
+      padding: 20px 40px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h3 {
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-logo {
+      width: 70px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ✅ Hero Section (No Background Image) */
+    .hero {
+      background: linear-gradient(to right, #ffce00, #ff9a9e);
+      height: 220px;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: slideDown 1.2s ease;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      animation: jump 2s infinite;
+    }
+
+    /* ✅ Calendar Section */
+    .calendar {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .month {
+      background: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: slideUp 0.8s forwards;
+    }
+
+    .month:hover {
+      transform: scale(1.05);
+    }
+
+    .month h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+      color: #8f00ff;
+    }
+
+    .month ul {
+      list-style: none;
+    }
+
+    .month ul li {
+      padding: 6px 0;
+      border-bottom: 1px dashed #ddd;
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    footer {
+      background: #444;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* ✅ Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes jump {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h3>
+      <img src="img/logo.png" alt="Logo" class="header-logo">
+      Where Little Minds Grow
+    </h3>
+    <nav>
+      <a href="Index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="gallery2.html">Gallery</a>
+      <a href="fees.html">Fees structure</a>
+      <a href="calender.html">Calendar</a>
+      <a href="contact.html">Contact</a>
+      <a href="popup.html">Admission</a>
+    </nav>
+  </header>
+
+  <!-- ✅ Hero Section -->
+  <section class="hero">
+    <h1>📅 Academic Calendar</h1>
+    <p>Joyful Learning • Events • Celebrations</p>
+  </section>
+
+    <!-- ✅ Academic Calendar Section -->
+  <section class="calendar">
+    <div class="month" style="animation-delay: 0.2s">
+      <h2>June 2025</h2>
+      <ul>
+        <li>10th – School Reopens</li>
+        <li>15th – Welcome Activities</li>
+        <li>21st – International Yoga Day</li>
+        <li>28th – Parent-Teacher Meeting</li>
+      </ul>
+    </div>
+
+    <div class="month" style="animation-delay: 0.4s">
+      <h2>July 2025</h2>
+      <ul>
+        <li>5th – Drawing Competition</li>
+        <li>20th – Unit Test 1</li>
+        <li>25th – Monsoon Celebration</li>
+      </ul>
+    </div>
+
+    <div class="month" style="animation-delay: 0.6s">
+      <h2>August 2025</h2>
+      <ul>
+        <li>15th – Independence Day Celebration</li>
+        <li>20th – Storytelling Day</li>
+        <li>29th – Raksha Bandhan</li>
+        <li>30th – Parent-Teacher Meeting</li>
+      </ul>
+    </div>
+
+    <div class="month" style="animation-delay: 0.8s">
+      <h2>September 2025</h2>
+      <ul>
+        <li>5th – Teacher’s Day</li>
+        <li>14th – Hindi Diwas</li>
+        <li>18th – Unit Test 2</li>
+        <li>30th – Field Trip</li>
+      </ul>
+    </div>
+
+    <div class="month" style="animation-delay: 1s">
+      <h2>October 2025</h2>
+      <ul>
+        <li>2nd – Gandhi Jayanti</li>
+        <li>10th – Annual Sports Day</li>
+        <li>25th – Diwali Celebration</li>
+        <li>28th – Parent-Teacher Meeting</li>
+      </ul>
+    </div>
+
+    <div class="month" style="animation-delay: 1.2s">
+      <h2>November 2025</h2>
+      <ul>
+        <li>14th – Children’s Day</li>
+        <li>20th – Science Exhibition</li>
+      </ul>
+    </div>
+
+    <div class="month" style="animation-delay: 1.4s">
+      <h2>December 2025</h2>
+      <ul>
+        <li>10th – Christmas Craft Fair</li>
+        <li>15th – Unit Test 3</li>
+        <li>22nd – Annual Day</li>
+        <li>24th – Christmas Celebration</li>
+        <li>27th – Parent-Teacher Meeting</li>
+      </ul>
+    </div>
+
+    <div class="month" style="animation-delay: 1.6s">
+      <h2>January 2026</h2>
+      <ul>
+        <li>12th – Swami Vivekananda Jayanti</li>
+        <li>26th – Republic Day Celebration</li>
+      </ul>
+    </div>
+
+    <div class="month" style="animation-delay: 1.8s">
+      <h2>February 2026</h2>
+      <ul>
+        <li>14th – Art & Craft Day</li>
+        <li>15th – Unit Test 4</li>
+        <li>20th – Picnic Day</li>
+        <li>28th – Parent-Teacher Meeting</li>
+      </ul>
+    </div>
+
+    <div class="month" style="animation-delay: 2s">
+      <h2>March 2026</h2>
+      <ul>
+        <li>8th – Holi Celebration</li>
+        <li>20th – Last Working Day</li>
+         <li>30th – Result Day</li>
+      </ul>
+    </div>
+  </section>
+  <footer> 
+     <p>&copy; 2025 Kindergarden | Shriyaro.</p>
+  </footer>

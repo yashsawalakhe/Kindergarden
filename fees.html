@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="responsive.css">
+
+  <title>Fees Structure - Kindergarten</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f7f9fc;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(to right, #8f00ff, #ffce00);
+      padding: 20px 40px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h3 {
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-logo {
+      width: 70px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ✅ Fees Section */
+    .fees {
+      padding: 50px 20px;
+      text-align: center;
+      background: #f9f9ff;
+    }
+
+    .fees h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #8f00ff, #ffce00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .fees table {
+      width: 100%;
+      max-width: 900px;
+      margin: 20px auto;
+      border-collapse: collapse;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+
+      /* ✅ Animation */
+      opacity: 0;
+      transform: translateY(50px);
+      animation: slideUp 1s ease forwards;
+    }
+
+    .fees th, .fees td {
+      padding: 15px;
+      font-size: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .fees thead {
+      background: linear-gradient(to right, #ffce00, #8f00ff);
+      color: white;
+    }
+
+    .fees tbody tr:nth-child(even) {
+      background: #f3f3f3;
+    }
+
+    .fees tbody tr:hover {
+      background: #ffe57f;
+      transition: 0.3s ease;
+    }
+
+    footer {
+      background: #444;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* ✅ Animations */
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ✅ Responsive */
+    @media (max-width: 768px) {
+      .fees table, .fees thead, .fees tbody, .fees th, .fees td, .fees tr {
+        display: block;
+        width: 100%;
+      }
+
+      .fees thead {
+        display: none;
+      }
+
+      .fees tr {
+        margin-bottom: 15px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        overflow: hidden;
+      }
+
+      .fees td {
+        text-align: right;
+        padding: 12px;
+        border: none;
+        position: relative;
+      }
+
+      .fees td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        font-weight: bold;
+        text-align: left;
+        color: #555;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h3>
+      <img src="img/logo.png" alt="Logo" class="header-logo">
+      Where Little Minds Grow
+    </h3>
+    <nav>
+      <a href="Index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="gallery2.html">Gallery</a>
+      <a href="fees.html">Fees structure</a>
+      <a href="calender.html">Calendar</a>
+      <a href="contact.html">Contact</a>
+      <a href="popup.html">Admission</a>
+    </nav>
+  </header>
+
+  <!-- ✅ Fees Section -->
+  <section class="fees">
+    <h2>📚 Fees Structure - 2025</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Tuition Fee</th>
+          <th>Activity Fee</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Class">Play Group</td>
+          <td data-label="Tuition Fee">₹ 15,000</td>
+          <td data-label="Activity Fee">₹ 2,000</td>
+          <td data-label="Total">₹ 17,000</td>
+        </tr>
+        <tr>
+          <td data-label="Class">Nursery</td>
+          <td data-label="Tuition Fee">₹ 18,000</td>
+          <td data-label="Activity Fee">₹ 2,500</td>
+          <td data-label="Total">₹ 20,500</td>
+        </tr>
+        <tr>
+          <td data-label="Class">LKG</td>
+          <td data-label="Tuition Fee">₹ 20,000</td>
+          <td data-label="Activity Fee">₹ 3,000</td>
+          <td data-label="Total">₹ 23,000</td>
+        </tr>
+        <tr>
+          <td data-label="Class">UKG</td>
+          <td data-label="Tuition Fee">₹ 22,000</td>
+          <td data-label="Activity Fee">₹ 3,500</td>
+          <td data-label="Total">₹ 25,500</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Kindergarden | Shriyaro.</p>
+  </footer>
+
+</body>
+</html>

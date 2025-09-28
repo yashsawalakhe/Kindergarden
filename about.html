@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="responsive.css">
+
+  <title>About - Kindergarden School</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #fffef4, #e6f7e6);
+      color: #333;
+      padding: 20px;
+      animation: fadeIn 1s ease;
+    }
+
+    header {
+      background: linear-gradient(to right, #8f00ff, #ffce00);
+      padding: 20px 40px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .branding {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .branding img {
+      width: 65px;
+      height: auto;
+    }
+
+    .branding h3 {
+      font-size: 1.4rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .text {
+      flex: 1 1 50%;
+    }
+
+    .text h1 {
+      color: #d97706;
+      font-size: 2.2rem;
+    }
+
+    .text h2 {
+      color: #047857;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+
+    .text p {
+      font-size: 1rem;
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+
+    .text ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .text ul li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .image {
+      flex: 1 1 40%;
+      text-align: center;
+    }
+
+    .image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border: 3px solid #bbf7d0;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      margin: 60px 0 20px;
+      font-size: 2rem;
+      color:  #b45309;
+      font-weight: bold;
+      animation: fadeIn 1.5s ease;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #555;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .text, .image {
+        flex: 1 1 100%;
+      }
+      .image img {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Navbar -->
+  <header>
+    <div class="branding">
+      <img src="img/logo.png" alt="Logo">
+      <h3>Where Little Minds Grow</h3>
+    </div>
+    <nav>
+      <a href="Index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="gallery2.html">Gallery</a>
+      <a href="fees.html">Fees Structure</a>
+      <a href="calender.html">Calendar</a>
+      <a href="contact.html">Contact</a>
+      <a href="popup.html">Admission</a>
+    </nav>
+  </header>
+
+  <!-- ✅ About Text Section (only text now) -->
+  <div class="container">
+    <div class="text">
+      <h1>Kindergarden School Lonara</h1>
+      <h2>Where Little Minds Grow</h2>
+      <p>At Kindergarden Lonara, we believe that every child is unique and full of potential. 
+      Our school provides a warm and nurturing environment that allows children to learn through 
+      creativity, play, and exploration.</p>
+
+      <h2 style="color: #b45309;">Our Mission</h2>
+      <p>We are committed to offering a balanced education that develops not only academic skills 
+      but also emotional intelligence, moral values, and creativity. Our goal is to prepare students 
+      for a lifetime of learning and success.</p>
+
+      <ul>
+        <li>✔️ Experienced and compassionate teachers</li>
+        <li>✔️ Engaging activity-based curriculum</li>
+        <li>✔️ Safe and modern learning environment</li>
+        <li>✔️ Individual care and guidance</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ✅ Principal Section -->
+  <h2 class="section-title">Our Principal</h2>
+  <div class="container">
+    <div class="text">
+      <h2>Meet Our Principal :  Mrs.Vaishali anjankar</h2>
+      
+      <p>Our respected Principal Madam is the guiding light of Kindergarden Lonara. 
+      With her vast experience in early childhood education, she brings innovative teaching methods, 
+      strong leadership, and motherly care to our school.</p>
+      <p>She believes that education is not just about books, but about shaping young minds with 
+      values, discipline, and creativity. Under her leadership, our school has grown into a place 
+      where children feel safe, happy, and inspired to learn.</p>
+    </div>
+    <div class="image">
+      <img src="img/principal.jpeg" alt="Principal">
+    </div>
+  </div>
+
+  <!-- ✅ Members Section -->
+  <h2 class="section-title">Our Members</h2>
+  <div class="container">
+    <div class="text">
+      <h2>Dedicated Team</h2>
+      <p>Our school is supported by a team of passionate teachers and staff who play a vital role 
+      in shaping the future of our children. Each member contributes with dedication and love.</p>
+      <ul>
+        <li>👩‍🏫 Mr.Deepak ajankar</li>
+        <li>👨‍🏫 Mr.Nandkishor Dangore </li>
+        <li>👩‍💼 Mrs. Deshmukh</li>
+        <li>👨‍🔧 Mr. Kumar</li>
+      </ul>
+      <p>Together, our team ensures that every child receives attention, guidance, and encouragement 
+      to bring out the best in them.</p>
+    </div>
+    <div class="image">
+      <img src="img/members.jpeg" alt="School Members">
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Kindergarden | Shriyaro.</p>
+  </footer>
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="responsive.css">
+
+  <title>Gallery - Kindergarten School</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f7f9fc;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ✅ Navbar/Header */
+    header {
+      background: linear-gradient(to right, #8f00ff, #ffce00);
+      padding: 20px 40px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-title img {
+      width: 60px; /* 🔥 thoda bada size */
+      height: auto;
+    }
+
+    .logo-title h3 {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    .logo-title h3 span {
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ✅ Page title section */
+    .page-title {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(to bottom right, #a258ff, #f8e71c);
+      color: white;
+      animation: slideFadeIn 1.2s ease-in-out;
+    }
+
+    .page-title h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .page-title p {
+      font-size: 1.1rem;
+    }
+
+    /* ✅ Gallery grid */
+    .gallery-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .card {
+      background: #ffffffdd;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 4px solid #9966ff;
+    }
+
+    .card h3 {
+      margin: 15px 0 10px;
+      color: #663399;
+    }
+
+    .card p {
+      padding: 0 15px 20px;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      margin-top: auto;
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      animation: fadeInUp 1.5s ease-in;
+    }
+
+    /* Lightbox popup style */
+    #lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.5);
+    }
+
+    #lightbox #close {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* ✅ Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideFadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- ✅ Navbar with Logo -->
+  <header>
+    <div class="logo-title">
+      <img src="img/logo.png" alt="Logo">
+      <h3>Where Little <span>Minds</span> Grow</h3>
+    </div>
+    <nav>
+      <a href="Index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="gallery2.html">Gallery</a>
+      <a href="fees.html">Fees Structure</a>
+      <a href="calender.html">Calendar</a>
+      <a href="contact.html">Contact</a>
+      <a href="popup.html">Admission</a>
+    </nav>
+  </header>
+
+  <!-- ✅ Page Title -->
+  <section class="page-title">
+    <h1>Our Gallery</h1>
+    <p>Beautiful Memories from Our Kindergarten</p>
+  </section>
+
+  <!-- ✅ Gallery Grid -->
+  <div class="gallery-container">
+    <div class="card">
+      <img src="img/pic6.jpeg" alt="Annual Day">
+      <h3>Annual Day</h3>
+      <p>Traditional and modern dances by our students.</p>
+    </div>
+    <div class="card">
+      <img src="img/pic3.jpeg" alt="Sports Meet">
+      <h3>Sports Meet</h3>
+      <p>Exciting sports and fun activities for kids.</p>
+    </div>
+    <div class="card">
+      <img src="img/pic5.jpeg" alt="Art Competition">
+      <h3>Art Competition</h3>
+      <p>Little artists expressing their creativity.</p>
+    </div>
+    <div class="card">
+      <img src="img/pic2.jpeg" alt="Joyful Learning">
+      <h3>Joyful Learning</h3>
+      <p>Exploring curiosity with fun experiments.</p>
+    </div>
+    <div class="card">
+      <img src="img/pic1.jpeg" alt="Fun Activity">
+      <h3>Fun Activity</h3>
+      <p>Kids enjoying activity sessions.</p>
+    </div>
+    <div class="card">
+      <img src="img/pic3.jpeg" alt="Learning Together">
+      <h3>Learning Together</h3>
+      <p>Kids exploring knowledge with fun.</p>
+    </div>
+  </div>
+
+  <!-- ✅ Lightbox -->
+  <div id="lightbox">
+    <span id="close">&times;</span>
+    <img id="lightbox-img" src="" alt="Expanded Image">
+  </div>
+
+  <!-- ✅ Footer -->
+  <footer>
+   <p>&copy; 2025 Kindergarden | Shriyaro.</p>
+  </footer>
+
+  <script>
+  // Lightbox script
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.getElementById("close");
+
+  document.querySelectorAll(".gallery-container img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+  </script>
+</body>
+</html>
+
+
